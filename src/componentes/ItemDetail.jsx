@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ItemCount from './ItemCount';
+import { CartContext } from '../Context/CartContext';
 
 const ItemDetail = ({ producto }) => {
+    //const contexto= useContext(CartContext)
+    //console.log(contexto)
+    const{addItem}= useContext(CartContext)
   const [mensaje, setMensaje] = useState('');
   console.log('Producto recibido:', producto);
 
@@ -10,7 +14,8 @@ const ItemDetail = ({ producto }) => {
 
   const onAdd = (cantidad) => {
     console.log(`Compraste ${cantidad} del item ${producto.name}`);
-    setMensaje(`Agregaste ${cantidad} ${producto.name} al carrito`);
+    setMensaje(`Agregaste ${cantidad} ${producto.name} al carrito`)
+    addItem(producto,cantidad);
   };
 
   return (

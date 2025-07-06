@@ -19,7 +19,8 @@ const ItemCount = ({ stock, onAdd }) => {
     if (typeof onAdd === 'function') {
       onAdd(count);
     } else {
-      console.warn('La función onAdd no fue pasada correctamente');
+      console.warn('La función onAdd no fue pasada correctamente al componente ItemCount');
+
     }
   };
 
@@ -36,5 +37,7 @@ const ItemCount = ({ stock, onAdd }) => {
     </div>
   );
 };
+
+
 
 export default ItemCount;
