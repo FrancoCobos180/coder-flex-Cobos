@@ -1,12 +1,19 @@
-// src/pages/ProductDetail.jsx
-import { useParams } from 'react-router-dom';
-import products from '../data/products';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../Mock/AsyincService.jsx";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const product = products.find((p) => p.id === id);
+  const [product, setProduct] = useState(null);
 
-  if (!product) return <p>Producto no encontrado</p>;
+  useEffect(() => {
+    getProducts().then((productos) => {
+      const encontrado = productos.find((p) => p.id === id);
+      setProduct(encontrado);
+    });
+  }, [id]);
+
+  if (!product) return <p>Cargando producto...</p>;
 
   return (
     <div>
@@ -19,3 +26,4 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
