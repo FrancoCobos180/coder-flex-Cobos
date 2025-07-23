@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
-import CartView from './CartView.JSX';
+import CartView from './CartView.jsx'
 import EmptyCart from './EmptyCart';
 
 const Cart = () => {
