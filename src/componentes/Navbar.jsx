@@ -16,7 +16,10 @@ const Navbar =() => {
           <NavLink to="/category/respaldos">Respaldos</NavLink>
           <NavLink to="/category/almohadas">Almohadas</NavLink>
         </div>
+        <NavLink to='/cart' style={{textDecoration:'none'}}>
         <CartWidget/>
+        </NavLink>
+        
   
       </nav>
     )
